@@ -10,7 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110503173041) do
+ActiveRecord::Schema.define(:version => 20110503192928) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+    t.integer  "user_id"
+  end
+
+  add_index "categories", ["ancestry"], :name => "index_categories_on_ancestry"
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "content"
+    t.string   "url_name"
+    t.integer  "status_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -35,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20110503173041) do
     t.datetime "updated_at"
     t.string   "firstname"
     t.string   "surname"
+    t.boolean  "admin"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

@@ -5,11 +5,13 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag 'jQuery', 'rails', 'rails.validations.js', 'application' %>
   <%= csrf_meta_tag %>
+  <%= include_tiny_mce_if_needed %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key %>
+<% end %>
 
 <%= yield %>
 

@@ -1,0 +1,20 @@
+<h1>Listing posts</h1>
+
+<% @posts.each do |post| %>
+  <%= link_to(content_tag(:h1, post.title), category_post_path(post.category.title, post.url_name)) %>
+  <div class="sub_header">
+    <%= t(:posted_by, :scope => :posts, 
+      :name => link_to(post.user.name, user_posts_path(post.user)), 
+      :in => link_to(post.category.title, category_posts_path(post.category)),
+      :at => l(post.created_at, :format => :short)).html_safe %>
+  </div>
+  <div class="content">
+    <%= post.content %>
+  </div>
+
+  <%= link_to 'Edit', edit_post_path(post) if can? :edit, @post %>
+  <%= link_to 'Destroy', posts_path, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @post %>
+<% end %>
+
+
+<%= content_tag(:p, link_to('New Post', new_post_path)) if can? :edit, @post %>

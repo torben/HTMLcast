@@ -1,7 +1,19 @@
 HTMLcast::Application.routes.draw do
-  devise_for :users
+  scope :path => '/(:locale)', :constraints => { :locale => /#{I18n.available_locales.join('|')}/ } do
+    resources :categories do
+      resources :posts
+    end
 
-  root :to => "home#index"
+    devise_for :users
+    resources :users do
+      resources :posts
+    end
+
+    resources :posts
+
+    root :to => "posts#index"
+    match ':controller/:action/:id(.:format)'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
