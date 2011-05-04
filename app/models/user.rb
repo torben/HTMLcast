@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :firstname, :surname
 
   has_many :posts
+  has_many :comments
 
   def name
     "#{firstname} #{surname}"

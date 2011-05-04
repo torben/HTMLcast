@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    authorize!(:comment, @comment)
     @comment = Comment.new
 
     respond_to do |format|
@@ -24,7 +25,10 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable
+    authorize!(:comment, @commentable)
     @comment = @commentable.comments.build(params[:comment])
+    @comment.user = current_user if current_user.present?
+
     if @comment.save
       flash[:notice] = "Successfully created comment."
       redirect_to :id => nil
@@ -35,7 +39,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    #@comment.destroy
+    authorize!(:destroy, @comment)
+    @comment.destroy
 
     respond_to do |format|
       format.html { redirect_to(comments_url) }

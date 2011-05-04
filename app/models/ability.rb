@@ -8,6 +8,20 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :comment, :all
+
+      can :update, Comment do |comment|
+        comment.user_id == user.id
+      end
+
+      can :destroy, Comment do |comment|
+        comment.user_id == user.id || (
+          case comment.commentable
+          when Post
+            comment.commentable.user.id == user.id
+          end
+        )
+      end
     end
     # Define abilities for the passed in user here. For example:
     #
