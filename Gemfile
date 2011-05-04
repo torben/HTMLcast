@@ -11,6 +11,8 @@ gem 'client_side_validations'
 gem 'ancestry'
 gem 'cancan'
 gem 'tiny_mce'
+gem 'acts-as-taggable-on'
+gem 'kaminari'
 
 # Use unicorn as the web server
 # gem 'unicorn'

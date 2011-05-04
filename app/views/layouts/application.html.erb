@@ -13,7 +13,11 @@
   <%= content_tag :div, msg, :id => key %>
 <% end %>
 
+<%= render :partial => 'shared/search_form' %>
+
 <%= yield %>
+
+<%= render :partial => 'shared/tag_cloud', :locals => { :tags => @tags } if defined? @tags and @tags.present? %>
 
 </body>
 </html>

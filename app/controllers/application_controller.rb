@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_locale
+  before_filter :set_locale, :set_tags
 
   protect_from_forgery
 
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { :locale => default_locale? ? nil : I18n.locale }
+  end
+
+  def set_tags
+    @tags = Post.tag_counts_on(:tags)
   end
 
   rescue_from CanCan::AccessDenied do |exception|

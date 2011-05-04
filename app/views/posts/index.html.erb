@@ -1,5 +1,6 @@
 <h1>Listing posts</h1>
 
+<%= paginate @posts %>
 <% @posts.each do |post| %>
   <%= link_to(content_tag(:h1, post.title), category_post_path(post.category.title, post.url_name)) %>
   <div class="sub_header">
@@ -15,6 +16,5 @@
   <%= link_to 'Edit', edit_post_path(post) if can? :edit, @post %>
   <%= link_to 'Destroy', posts_path, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @post %>
 <% end %>
-
 
 <%= content_tag(:p, link_to('New Post', new_post_path)) if can? :edit, @post %>

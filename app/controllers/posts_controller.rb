@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   uses_tiny_mce :only => [:new, :edit]
 
   def index
-    y params
   end
 
   def show
@@ -64,8 +63,11 @@ class PostsController < ApplicationController
       elsif params[:category_id].present?
         load_category.posts
       else
-        Post.all
-      end
+        Post
+      end.page(params[:page]).per(10)
+
+      @posts = @posts.where('title LIKE ? OR content LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+      @posts = @posts.tagged_with(params[:tag]) if params[:tag].present?
     end
 
     def load_post
