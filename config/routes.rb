@@ -1,4 +1,6 @@
 HTMLcast::Application.routes.draw do
+  resources :comments
+
   scope :path => '/(:locale)', :constraints => { :locale => /#{I18n.available_locales.join('|')}/ } do
     resources :categories do
       resources :posts
@@ -9,7 +11,9 @@ HTMLcast::Application.routes.draw do
       resources :posts
     end
 
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
 
     root :to => "posts#index"
     match ':controller/:action/:id(.:format)'

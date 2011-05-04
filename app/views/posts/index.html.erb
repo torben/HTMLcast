@@ -12,6 +12,9 @@
   <div class="content">
     <%= post.content %>
   </div>
+  <div class="count">
+    <%= post.comments.count %>
+  </div>
 
   <%= link_to 'Edit', edit_post_path(post) if can? :edit, @post %>
   <%= link_to 'Destroy', posts_path, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @post %>

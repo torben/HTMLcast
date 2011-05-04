@@ -1,0 +1,13 @@
+<div class="comment">
+  <div class="created_at"><%= comment.created_at.strftime("%B %d, %Y") %></div>
+  <div class="content">
+    <%= comment.body %>
+  </div>
+  <div class="actions">
+    <%= link_to "Reply", new_comments_url_for(comment, :parent_id => comment), :class => 'reply_link' %> |
+    <%= link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete, :remote => true %>
+  </div>
+  <div class="reply">
+    <%= render :partial => 'comments/form', :locals => { :comment => comment.commentable.comments.build(:parent_id => comment.id) } %>
+  </div>
+</div>

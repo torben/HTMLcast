@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments.arrange(:order => :created_at)
   end
 
   def new
