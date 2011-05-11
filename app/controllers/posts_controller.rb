@@ -65,7 +65,7 @@ class PostsController < ApplicationController
         load_category.posts
       else
         Post
-      end.page(params[:page]).per(10)
+      end.order('created_at DESC').page(params[:page]).per(10)
 
       @posts = @posts.where('title LIKE ? OR content LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
       @posts = @posts.tagged_with(params[:tag]) if params[:tag].present?
