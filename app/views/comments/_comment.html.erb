@@ -1,6 +1,7 @@
 <div class="comment">
   <div class="created_at"><%= comment.created_at.strftime("%B %d, %Y") %></div>
   <div class="content">
+    <%= image_tag avatar_url(comment.email) %>
     <%= comment.body %>
   </div>
   <div class="actions">
