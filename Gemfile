@@ -5,6 +5,8 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'nifty-generators', :group => :development
+
 gem 'mysql'
 gem 'devise'
 gem 'client_side_validations'
@@ -36,3 +38,4 @@ gem 'kaminari'
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "mocha", :group => :test
