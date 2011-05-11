@@ -1,0 +1,33 @@
+<%= "Page" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @page.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @page.content %>
+</p>
+<p>
+  <strong>Published At:</strong>
+  <%= @page.published_at %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @page.user_id %>
+</p>
+<p>
+  <strong>Ancestry:</strong>
+  <%= @page.ancestry %>
+</p>
+
+<%= content_tag :h2, t(:comments, :scope => :comments) %>
+<%= nested_comments @comments %>
+<%= render :partial => 'comments/form', :locals => { :comment => @page.comments.build } %>
+
+
+<p>
+  <%= link_to "Edit", edit_page_path(@page) %> |
+  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", pages_path %>
+</p>

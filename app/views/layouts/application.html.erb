@@ -17,6 +17,8 @@
 
 <%= render :partial => 'shared/search_form' %>
 
+<%= render :partial => 'pages/navigation' %>
+
 <%= yield %>
 
 <%= render :partial => 'shared/tag_cloud', :locals => { :tags => @tags } if defined? @tags and @tags.present? %>

@@ -72,8 +72,7 @@ class PostsController < ApplicationController
     end
 
     def load_post
-      #@post = load_category.post.find_by_url_name(params[:id]) || load_category.post.find(params[:id])
-      @post = Post.find_by_url_name(params[:id]) || Post.find(params[:id])
+      @post = Post.find(params[:id])
     end
 
     def load_category

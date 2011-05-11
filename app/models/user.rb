@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :pages
 
   def name
     "#{firstname} #{surname}"

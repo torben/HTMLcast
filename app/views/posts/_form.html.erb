@@ -20,10 +20,6 @@
     <%= f.text_area :content, :class => 'mceEditor' %>
   </div>
   <div class="field">
-    <%= f.label :url_name %><br />
-    <%= f.text_field :url_name %>
-  </div>
-  <div class="field">
     <%= f.select(:status_id, statuses_for_select(Post)) %>
   </div>
   <div class="field">

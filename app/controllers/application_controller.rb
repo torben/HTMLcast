@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :set_locale, :set_tags
+  before_filter :set_pages
 
   protect_from_forgery
 
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Access denied."
     redirect_to root_url
+  end
+
+  def set_pages
+    @pages = Page.arrange
   end
 end

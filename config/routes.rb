@@ -15,6 +15,10 @@ HTMLcast::Application.routes.draw do
       resources :comments
     end
 
+    resources :pages do
+      resources :comments
+    end
+
     root :to => "posts#index"
     match ':controller/:action/:id(.:format)'
   end

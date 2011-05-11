@@ -2,7 +2,7 @@
 
 <%= paginate @posts %>
 <% @posts.each do |post| %>
-  <%= link_to(content_tag(:h1, post.title), category_post_path(post.category.title, post.url_name)) %>
+  <%= link_to(content_tag(:h1, post.title), category_post_path(post.category, post)) %>
   <div class="sub_header">
     <%= t(:posted_by, :scope => :posts, 
       :name => link_to(post.user.name, user_posts_path(post.user)), 

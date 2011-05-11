@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110504193023) do
+ActiveRecord::Schema.define(:version => 20110511194527) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "name"
+    t.string   "url"
+    t.string   "format"
+    t.integer  "bytes"
+    t.integer  "seconds"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -38,11 +50,24 @@ ActiveRecord::Schema.define(:version => 20110504193023) do
 
   add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
 
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "published_at"
+    t.integer  "user_id"
+    t.string   "ancestry"
+    t.integer  "ancestry_depth", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"
+
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.text     "title"
     t.text     "content"
-    t.string   "url_name"
+    t.string   "permalink"
     t.integer  "status_id"
     t.integer  "category_id"
     t.datetime "created_at"
