@@ -49,7 +49,7 @@
 		// Private plugin internal methods
 
 		_setBodyAttribs : function(ed, o) {
-			var bdattr, i, len, kv, k, v, t, attr = this.head.match(/body(.*?)>/i), bddir = '',htattr, hattr = this.head.match(/<html([^>]*?)>/i);
+			var bdattr, i, len, kv, k, v, t, attr = this.head.match(/body(.*?)>/i);
 
 			if (attr && attr[1]) {
 				bdattr = attr[1].match(/\s*(\w+\s*=\s*".*?"|\w+\s*=\s*'.*?'|\w+\s*=\s*\w+|\w+)\s*/g);
@@ -66,8 +66,6 @@
 
 							if (t)
 								v = t[1];
-							if(k == 'dir')
-								bddir = v;
 						} else
 							v = k;
 
@@ -75,32 +73,17 @@
 					}
 				}
 			}
-			//if found fetch the dir-attribute from the html-tag and apply it to the editor-body
-			if(bddir == '' && hattr && hattr[1]){
-				htattr = hattr[1].match(/dir\s*=\s*["']([^"']*)["']/i);
-				if (htattr && htattr[1])
-					bddir = htattr[1];
-			}
-			bd = ed.getBody();
-			bd.setAttribute('dir', bddir);
 		},
 
 		_createSerializer : function() {
 			return new tinymce.dom.Serializer({
 				dom : this.editor.dom,
-				indent : true,
-				apply_source_formatting : true,
-				indent_before : 'p,h1,h2,h3,h4,h5,h6,blockquote,div,title,style,pre,script,td,ul,li,area,title,meta,head',
-				indent_after : 'p,h1,h2,h3,h4,h5,h6,blockquote,div,title,style,pre,script,td,ul,li,area,title,meta,head'
+				apply_source_formatting : true
 			});
 		},
 
 		_setContent : function(ed, o) {
 			var t = this, sp, ep, c = o.content, v, st = '';
-
-			// Ignore raw updated if we already have a head, this will fix issues with undo/redo keeping the head/foot separate
-			if (o.format == 'raw' && t.head)
-				return;
 
 			if (o.source_view && ed.getParam('fullpage_hide_in_source_view'))
 				return;
@@ -115,7 +98,7 @@
 
 				ep = c.indexOf('</body', sp);
 				if (ep == -1)
-					ep = c.length;
+					ep = c.indexOf('</body', ep);
 
 				o.content = c.substring(sp + 1, ep);
 				t.foot = c.substring(ep);

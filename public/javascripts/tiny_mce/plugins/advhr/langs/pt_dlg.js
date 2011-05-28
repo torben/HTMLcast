@@ -1,1 +1,5 @@
-tinyMCE.addI18n('pt.advhr_dlg',{size:"Altura",noshade:"Sem sombra",width:"Largura"});
+tinyMCE.addI18n('pt.advhr_dlg',{
+width:"Largura",
+size:"Altura",
+noshade:"Sem sombra"
+});
