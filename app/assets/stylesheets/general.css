@@ -14,7 +14,7 @@ body, p, ol, ul, td {
   font-family: arial, helvetica, sans-serif;
   font-size: 11px;
   color: #474646;
-  line-height: 18px;
+  line-height:16px;
 }
 
 pre {
@@ -26,7 +26,6 @@ pre {
 img { border:none; }
 
 a { color: #000; }
-a:hover { }
 
 #main {
   width:808px;
@@ -73,6 +72,15 @@ a:hover { }
   background-image: url(/assets/layout/content_splitter_top.png), url(/assets/layout/content_splitter_bottom.png), url(/assets/layout/content_splitter_bg.png);
   background-repeat: no-repeat, no-repeat, repeat-y;
   background-position: right top, right bottom, right center;
+}
+
+.col-main .article .entry {
+  -moz-column-count: 2;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 20px;
+  column-count: 2;
+  column-gap: 20px;
 }
 
 .col-main .article h1 { font-weight:bold; display:block; font-size:16px; text-transform:uppercase; }
