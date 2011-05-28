@@ -7,6 +7,10 @@ class PostsController < ApplicationController
   uses_tiny_mce :only => [:new, :edit]
 
   def index
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
 
   def show
