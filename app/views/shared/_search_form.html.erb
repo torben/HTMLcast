@@ -1,7 +1,7 @@
 <%= form_tag posts_path, :method => 'get' do %>
   <p>
     <strong>Suchbegriff eingeben</strong>
-    <%= search_field_tag :search, params[:search], :results => 5, :placeholder => "Search...", :autosave => "html_cast_search" %>
+    <%= search_field_tag :search, params[:search], :results => 5, :placeholder => t(:search, :scope => :posts), :autosave => "html_cast_search" %>
     <%= image_submit_tag '/assets/layout/search_button.png', :name => nil %>
   </p>
 <% end -%>

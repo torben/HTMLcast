@@ -1,3 +1,4 @@
 de:
   posts:
     posted_by: "Gepostet von %{name} in %{in} am %{at}"
+    search: "Suchen..."

@@ -1,7 +1,7 @@
 jQuery ->
   # color changer
   colors =
-    values: ['red', 'green', 'blue'],
+    values: ['red', 'blue', '#d9cb9e', '#d1e503'],
     pos: -1,
 
     next: ->

@@ -76,7 +76,7 @@ a:hover { }
 }
 
 .col-main .article h1 { font-weight:bold; display:block; font-size:16px; text-transform:uppercase; }
-.col-main .article h1 a { text-decoration:none; }
+.col-main .article h1 a { text-decoration:none; background:#fff; }
 .col-main .article hr { border:0px; color:#bcbbbb; background-color:#bcbbbb; height:1px; display:block; line-height:1px; text-align:left; margin:30px 0px; }
 
 .col-main .aside { width:130px; padding-left:31px; float:left; }
@@ -124,10 +124,10 @@ div.field, div.actions { margin-bottom: 10px; }
 }
 
 
-.css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
+a.css1 { font-size: 1.0em !important; }
+a.css2 { font-size: 1.2em !important; }
+a.css3 { font-size: 1.4em !important; }
+a.css4 { font-size: 1.6em !important; }
 
 .reply .new_comment { display:none; }
 
