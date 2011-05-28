@@ -1,0 +1,6 @@
+de:
+  flash:
+    comments:
+      create:
+        success: Kommentar wurde angelegt. Vielen Dank!
+        failure: Kommentar wurde nicht gespeichert.

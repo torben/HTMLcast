@@ -1,8 +1,22 @@
 <%= form_for(comment, :url => comments_url_for(comment), :html => { :class => 'new_comment' }) do |f| %>
   <%= f.hidden_field :parent_id, :value => comment.parent_id %>
-  <p><%= f.label :name %>:<%= f.text_field :name %><br />
-  <%= f.label :email %>:<%= f.text_field :email %><br />
-  <%= f.label :website %>:<%= f.text_field :website %><br />
-  <%= f.label :body %>: <%= f.text_area :body %><br />
+  <table>
+    <tr>
+      <td><%= f.label :name %>:</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :email %>:</td>
+      <td><%= f.email_field :email %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :website %>:</td>
+      <td><%= f.url_field :website %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :body %>:</td>
+      <td><%= f.text_area :body %></td>
+    </tr>
+  </table>
   <%= f.submit %></p>
 <% end %>

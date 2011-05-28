@@ -6,7 +6,7 @@
   </div>
   <div class="actions">
     <%= link_to "Reply", new_comments_url_for(comment, :parent_id => comment), :class => 'reply_link' %>
-    <%= ("| " + link_to("Destroy", comment, :confirm => "Are you sure?", :method => :delete, :remote => true)).html_safe if can? :destroy, comment %>
+    <%= ("| " + link_to("Destroy", destroy_comments_url_for(comment), :confirm => "Are you sure?", :method => :delete)).html_safe if can? :destroy, comment %>
   </div>
   <div class="reply">
     <%= render :partial => 'comments/form', :locals => { :comment => comment.commentable.comments.build(:parent_id => comment.id) } %>

@@ -30,11 +30,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user if current_user.present?
 
     if @comment.save
-      flash[:notice] = "Successfully created comment."
-      redirect_to :id => nil
+      flash[:notice] = I18n.t(:success, :scope => :"flash.comments.create")
     else
-      render :action => 'new'
+      flash[:error] = I18n.t(:failure, :scope => :"flash.comments.create")
     end
+    redirect_to(find_commentable)
   end
 
   def destroy
@@ -43,12 +43,13 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
+      format.html { redirect_to(@comment.commentable) }
       format.xml  { head :ok }
     end
   end
 
   private
+    #permissions_url(params[:resource_type], params[:resource_id])
 
     def find_commentable
       params.each do |name, value|
