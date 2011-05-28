@@ -10,6 +10,10 @@ class Ability
       can :read, :all
       can :comment, :all
 
+      can :manage, Category do |category|
+        current_user.admin?
+      end
+
       can :update, Comment do |comment|
         comment.user_id == user.id
       end

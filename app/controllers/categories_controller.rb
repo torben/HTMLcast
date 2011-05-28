@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :load_categories, :only => :index
   before_filter :load_category,  :only => [:show, :edit, :update, :destroy]
   before_filter :set_category_tree, :only => [:new, :edit]
+  before_filter :admin?, :except => [:show]
 
   def index
   end
@@ -60,5 +61,9 @@ class CategoriesController < ApplicationController
 
     def load_category
       @category = Category.find(params[:id])
+    end
+
+    def admin?
+      redirect_to root_url unless authenticate_user! && current_user.admin?
     end
 end

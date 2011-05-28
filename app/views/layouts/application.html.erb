@@ -13,6 +13,7 @@
 <body>
 
 <div id="main">
+  <%= render :partial => 'users/admin_panel' if user_signed_in? && current_user.admin? %>
   <%= render :partial => 'pages/navigation' %>
 
   <div class="col-main">

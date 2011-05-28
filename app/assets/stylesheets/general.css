@@ -27,6 +27,9 @@ img { border:none; }
 
 a { color: #000; }
 
+#admin_panel { background:url(/assets/layout/content_footer.png); height:36px; padding:0px 23px 0px 49px; line-height:25px; margin:0px; list-style:none; }
+#admin_panel li { display:inline; padding:0px 20px 0px 0px; }
+
 #main {
   width:808px;
   margin:auto;
