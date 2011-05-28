@@ -3,6 +3,8 @@ class PagesController < ApplicationController
   before_filter :set_page, :only => [:edit, :show, :destroy]
   before_filter :set_pages_tree, :only => [:edit, :new]
 
+  uses_tiny_mce :only => [:new, :edit]
+
   def index
     @pages = Page.all
   end
