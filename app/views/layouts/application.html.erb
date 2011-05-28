@@ -3,9 +3,31 @@
 <head>
   <title>HTMLcast</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag 'jQuery', 'rails', 'rails.validations.js', 'application', 'comments' %>
+  <%= javascript_include_tag 'jQuery', 'rails', 'rails.validations.js', 'application', 'comments', 'jquery_plugins/jquery.color.js' %>
   <%= csrf_meta_tag %>
   <%= include_tiny_mce_if_needed %>
+  <script>
+  $(function() {
+    var colors = {
+      values: new Array('red', 'green', 'blue'),
+      pos: -1,
+
+      next: function() {
+        var values = this.values;
+        this.pos++;
+        if(this.pos >= values.length) this.pos = 0;
+        return values[this.pos];
+      }
+    };
+
+    function animate() {
+      $("body").animate({
+        backgroundColor: colors.next()
+      }, 15000, animate);
+    }
+    animate();
+  });
+  </script>
 </head>
 <body>
 
