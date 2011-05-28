@@ -1,8 +1,7 @@
-<h1>Listing posts</h1>
-
 <%= paginate @posts %>
-<% @posts.each do |post| %>
-  <%= link_to(content_tag(:h1, post.title), category_post_path(post.category, post)) %>
+<% @posts.each_with_index do |post, i| %>
+  <%= content_tag :hr if i > 0 %>
+  <%= content_tag(:h1, link_to(post.title, category_post_path(post.category, post))) %>
   <div class="sub_header">
     <%= t(:posted_by, :scope => :posts, 
       :name => link_to(post.user.name, user_posts_path(post.user)), 

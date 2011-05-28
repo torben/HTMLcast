@@ -2,48 +2,48 @@
 <html>
 <head>
   <title>HTMLcast</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag 'jQuery', 'rails', 'rails.validations.js', 'application', 'comments', 'jquery_plugins/jquery.color.js' %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
   <%= include_tiny_mce_if_needed %>
-  <script>
-  $(function() {
-    var colors = {
-      values: new Array('red', 'green', 'blue'),
-      pos: -1,
-
-      next: function() {
-        var values = this.values;
-        this.pos++;
-        if(this.pos >= values.length) this.pos = 0;
-        return values[this.pos];
-      }
-    };
-
-    function animate() {
-      $("body").animate({
-        backgroundColor: colors.next()
-      }, 15000, animate);
-    }
-    animate();
-  });
-  </script>
 </head>
 <body>
 
-<%= content_tag :h1, current_user.name if current_user.present? %>
+<div id="main">
+  <%= render :partial => 'pages/navigation' %>
 
-<% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :id => key %>
-<% end %>
+  <div class="col-main">
+    <div class="col-inner">
+      <header class="header">
+        <%= link_to image_tag('logo.png', :id => 'logo'), root_url %>
+        <%= render :partial => 'shared/search_form' %>
+        <div class="social">
+          <%= link_to '&nbsp;'.html_safe, '#', :class => 'facebook' %>
+          <%= link_to '&nbsp;'.html_safe, '#', :class => 'twitter' %>
+          <%= link_to '&nbsp;'.html_safe, '#', :class => 'rss' %>
+        </div>
+      </header>
+    
+      <article class="article">
+        <% flash.each do |key, msg| %>
+          <%= content_tag :div, msg, :id => key %>
+        <% end %>
 
-<%= render :partial => 'shared/search_form' %>
+        <%= yield %>
+      </article>
 
-<%= render :partial => 'pages/navigation' %>
+      <aside class="aside">
+        <%= content_tag :h2, t(:categories, :scope => :categories) %>
+        <%= build_categories(@main_categories) %>
 
-<%= yield %>
+        <%= content_tag :h2, t(:tags, :scope => :tags) %>
+        <%= render :partial => 'shared/tag_cloud', :locals => { :tags => @tags } if defined? @tags and @tags.present? %>
+      </aside>
 
-<%= render :partial => 'shared/tag_cloud', :locals => { :tags => @tags } if defined? @tags and @tags.present? %>
+      <div class="line">&nbsp;</div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

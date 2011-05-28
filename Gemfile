@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc1'
-gem 'mysql2'
+gem 'mysql2', '>= 0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -21,13 +21,15 @@ gem 'tiny_mce'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
 gem 'mongrel', '1.2.0.pre2'
+gem 'highline'
 
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
+group :development do
+  gem "rspec-rails"
+  gem "launchy"
+  gem "thin"
+  gem "nifty-generators"
+  gem "capistrano"
+end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

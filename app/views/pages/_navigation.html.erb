@@ -1,3 +1,4 @@
-<nav>
-  <%= build_navigation @pages %>
+<nav class="nav">
+  <%= build_navigation @pages if @pages.present? %>
+  <%= link_to '&copy; 2011 HTMLCASTS'.html_safe, root_url %>
 </nav>

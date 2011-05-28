@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :set_locale, :set_tags
   before_filter :set_pages
+  before_filter :set_categories
 
   protect_from_forgery
 
@@ -27,5 +28,9 @@ class ApplicationController < ActionController::Base
 
   def set_pages
     @pages = Page.arrange
+  end
+
+  def set_categories
+    @main_categories = Category.arrange
   end
 end
