@@ -1,4 +1,8 @@
 <nav class="nav">
+  <div class="navigation lvl0">
+    <%= link_to 'Home'.html_safe, root_url %>
+    <span>_</span>
+  </div>
   <%= build_navigation @pages if @pages.present? %>
   <%= link_to '&copy; 2011 HTMLCASTS'.html_safe, root_url %>
 </nav>

@@ -21,9 +21,9 @@
         <%= link_to image_tag('logo.png', :id => 'logo'), root_url %>
         <%= render :partial => 'shared/search_form' %>
         <div class="social">
-          <%= link_to '&nbsp;'.html_safe, '#', :class => 'facebook' %>
-          <%= link_to '&nbsp;'.html_safe, '#', :class => 'twitter' %>
-          <%= link_to '&nbsp;'.html_safe, '#', :class => 'rss' %>
+          <%= link_to '&nbsp;'.html_safe, 'http://www.facebook.com/htmlcast', :class => 'facebook' %>
+          <%= link_to '&nbsp;'.html_safe, 'http://twitter.com/#!/lshadyl', :class => 'twitter' %>
+          <%= link_to '&nbsp;'.html_safe, root_url(:format => 'atom'), :class => 'rss' %>
         </div>
       </header>
     
