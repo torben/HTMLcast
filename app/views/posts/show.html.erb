@@ -1,38 +1,14 @@
-<p id="notice"><%= notice %></p>
+<%= content_tag :h1, @post.title %>
 
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
+<%= @post.content.html_safe %>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<%= render :partial => 'video', :locals => { :post => @post } if @post.video.present? %>
 
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
-
-<p>
-  <b>permalink:</b>
-  <%= @post.permalink %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= status_for(@post) %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @post.category_id %>
-</p>
+<% if can? :manage, @post -%>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+<% end -%>
 
 <%= content_tag :h2, t(:comments, :scope => :comments) %>
 <%= nested_comments @comments %>
 <%= render :partial => 'comments/form', :locals => { :comment => @post.comments.build } %>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
