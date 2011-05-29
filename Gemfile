@@ -33,7 +33,7 @@ end
 
 group :production do
   gem 'ansi'
-  #gem 'therubyracer'
+  gem 'therubyracer'
 end
 
 # To use debugger
