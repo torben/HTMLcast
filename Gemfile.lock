@@ -174,7 +174,7 @@ DEPENDENCIES
   rails (= 3.1.0.rc1)
   rspec-rails
   sass
-  therubyracer
+  therubyracer (~> 0.8.2.pre)
   thin
   tiny_mce
   turn
