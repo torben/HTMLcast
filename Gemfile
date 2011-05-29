@@ -22,12 +22,12 @@ gem 'acts-as-taggable-on'
 gem 'kaminari'
 gem 'mongrel', '1.2.0.pre2'
 gem 'highline'
+gem "nifty-generators"
 
 group :development do
   gem "rspec-rails"
   gem "launchy"
   gem "thin"
-  gem "nifty-generators"
   gem "capistrano"
 end
 
