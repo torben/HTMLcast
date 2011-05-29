@@ -32,7 +32,7 @@ group :development do
 end
 
 group :production do
-  gem 'execjs'
+  gem 'therubyracer'
 end
 
 # To use debugger
