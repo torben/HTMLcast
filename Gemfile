@@ -32,6 +32,7 @@ group :development do
 end
 
 group :production do
+  gem 'ansi'
   gem 'therubyracer'
 end
 

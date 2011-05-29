@@ -159,6 +159,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   ancestry
+  ansi
   cancan
   capistrano
   coffee-script
