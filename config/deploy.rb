@@ -25,7 +25,7 @@ set :ssh_options, { :forward_agent => true }
 ## Application name and repository
 
 # application name ( should be rails1 rails2 rails3 ... )
-set :application, "htmlcast"
+set :application, "rails1"
 
 # repository location
 set :repository, "git@github.com:torben/HTMLcast.git"
