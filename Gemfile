@@ -31,6 +31,10 @@ group :development do
   gem "capistrano"
 end
 
+group :production do
+  gem 'therubyracer'
+end
+
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
