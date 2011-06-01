@@ -5,3 +5,4 @@ tmp/
 .rvmrc
 config/database.yml
 .DS_Store
+.sass-cache/caea99b0ae5eaff96582efe8cdf3bd03c1517007/general.css.scssc
