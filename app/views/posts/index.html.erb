@@ -1,3 +1,8 @@
+<% if @posts.blank? %>
+  <%= content_tag :h1, t(:no_posts, :scope => :posts) %>
+  <%= content_tag :p, t(:no_posts_txt, :scope => :posts) %>
+<% end %>
+
 <%= paginate @posts %>
 <% @posts.each_with_index do |post, i| %>
   <%= content_tag :hr if i > 0 %>

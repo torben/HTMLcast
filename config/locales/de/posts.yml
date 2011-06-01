@@ -2,3 +2,5 @@ de:
   posts:
     posted_by: "Gepostet von %{name} in %{in} am %{at}"
     search: "Suchen..."
+    no_posts: Keine Artikel gefunden
+    no_posts_txt: Es sind in dieser Kategorie keine Artikel vorhanden. Bitte versuchen Sie es später erneut.

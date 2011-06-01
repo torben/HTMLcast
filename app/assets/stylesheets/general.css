@@ -70,6 +70,7 @@ a { color: #000; }
 
 .col-main .article {
   width:519px;
+  min-height:400px;
   padding-right:41px;
   float:left;
   background-image: url(/assets/layout/content_splitter_top.png), url(/assets/layout/content_splitter_bottom.png), url(/assets/layout/content_splitter_bg.png);

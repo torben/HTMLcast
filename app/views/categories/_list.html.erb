@@ -1,4 +1,4 @@
 <div class="navigation lvl<%= category.depth %>">
-  <%= link_to(category.title, category) %>
+  <%= link_to(category.title, category_posts_path(category)) %>
   <!-- , :class => current_page?(page) ? 'hi' : '' -->
 </div>
