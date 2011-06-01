@@ -19,7 +19,10 @@
   <div class="col-main">
     <div class="col-inner">
       <header class="header">
-        <%= link_to image_tag('logo.png', :id => 'logo'), root_url %>
+        <!-- <%= link_to image_tag('logo.png', :id => 'logo'), root_url %> -->
+        <div id="htmlcast_hype_container" style="position:relative;overflow:hidden;width:201px;height:95px;">
+          <script type="text/javascript" src="/assets/annis/htmlcast_hype_generated_script.js?82205"></script>
+      	</div>
         <%= render :partial => 'shared/search_form' %>
         <div class="social">
           <%= link_to '&nbsp;'.html_safe, 'http://www.facebook.com/htmlcast', :class => 'facebook' %>
