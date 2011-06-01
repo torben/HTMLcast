@@ -1,0 +1,6 @@
+de:
+  comments:
+    count:
+      zero: Keine Kommentare vorhanden
+      one: 1 Kommentar
+      other: "%{count} Kommentare"

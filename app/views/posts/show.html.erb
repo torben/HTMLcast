@@ -9,6 +9,7 @@
   <%= link_to 'Back', posts_path %>
 <% end -%>
 
+<a name="comments"></a>
 <%= content_tag :h2, t(:comments, :scope => :comments) %>
 <%= nested_comments @comments %>
 <%= render :partial => 'comments/form', :locals => { :comment => @post.comments.build } %>

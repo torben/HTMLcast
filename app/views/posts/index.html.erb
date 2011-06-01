@@ -16,8 +16,8 @@
   <div class="content">
     <%= post.content %>
   </div>
-  <div class="count">
-    <%= post.comments.count %>
+  <div class="comment_count">
+    <%= link_to(t(:count, :scope => :comments, :count => post.comments.count), post_url(post, :anchor => 'comments')) %>
   </div>
 
   <%= link_to 'Edit', edit_post_path(post) if can? :edit, @post %>
