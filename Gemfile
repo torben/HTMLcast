@@ -33,7 +33,6 @@ end
 
 group :production do
   gem 'ansi'
-  gem "therubyracer", "~> 0.8.2.pre"
 end
 
 # To use debugger
