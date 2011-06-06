@@ -4,5 +4,4 @@ Hier entsteht der neue Blog von www.htmlcast.de...
 
 == BUGS
 
-* Lokal funktioniert session_store.rb, remote nicht (von 3.0 übernommen)
-* Lokal funktioniert wrap_parameters.rb, remote nicht (Auskommentiert!)
+* bis jetzt noch keine :O
