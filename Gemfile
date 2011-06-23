@@ -41,4 +41,11 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'rspec-rails'
+  gem 'rcov'
+  gem 'machinist', '>= 2.0.0.beta1'
+  gem 'faker', '0.3.1'
+  gem 'launchy'
+  gem 'fakeweb'
+  gem 'database_cleaner'
 end
