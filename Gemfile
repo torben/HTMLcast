@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc5'
-gem 'mysql2', '< 0.3'
+gem 'mysql2'
 
 # Bug in Arel
 gem "arel", "2.1.4"

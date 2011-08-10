@@ -83,7 +83,7 @@ GEM
       daemons (~> 1.0.10)
       gem_plugin (~> 0.2.3)
     multi_json (1.0.3)
-    mysql2 (0.2.11)
+    mysql2 (0.3.6)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -179,7 +179,7 @@ DEPENDENCIES
   launchy
   machinist (>= 2.0.0.beta1)
   mongrel (= 1.2.0.pre2)
-  mysql2 (< 0.3)
+  mysql2
   nifty-generators
   rails (= 3.1.0.rc5)
   rcov
