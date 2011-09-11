@@ -1,18 +1,17 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '3.1.0'
 gem 'mysql2'
-
-# Bug in Arel
-gem "arel", "2.1.4"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # Asset template engines
-gem 'sass'
-gem 'coffee-script'
-gem 'uglifier'
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
 
 gem 'jquery-rails'
 
