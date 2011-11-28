@@ -14,10 +14,10 @@ require 'bundler/capistrano'
 ## User and Password
 
 # user to login to the target server
-set :user, "user63371621"
+set :user, "htmlcast"
 
 # password to login to the target server
-# set :password, "test"
+# set :password, "none"
 
 # allow SSH-Key-Forwarding
 set :ssh_options, { :forward_agent => true }
@@ -25,12 +25,12 @@ set :ssh_options, { :forward_agent => true }
 ## Application name and repository
 
 # application name ( should be rails1 rails2 rails3 ... )
-set :application, "rails1"
+set :application, "htmlcast"
 
 # repository location
 set :repository, "git@github.com:torben/HTMLcast.git"
 
-# svn or git
+# :subversionn or :git
 set :scm, :git
 set :scm_verbose, true
 
@@ -44,12 +44,12 @@ default_run_options[:pty] = true
 set :use_sudo, false
 
 # set the location where to deploy the new project
-set :deploy_to, "/home/#{user}/#{application}"
+set :deploy_to, "/var/www/#{application}"
 
 # live
-role :app, "zeta.railshoster.de"
-role :web, "zeta.railshoster.de"
-role :db,  "zeta.railshoster.de", :primary => true
+role :app, "server1686.railsvserver.de"
+role :web, "server1686.railsvserver.de"
+role :db,  "server1686.railsvserver.de", :primary => true
 
 
 ############################################
@@ -65,6 +65,8 @@ namespace :deploy do
   desc "Additional Symlinks ( database.yml, etc. )"
   task :additional_symlink, :roles => :app do
     run "ln -s #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+    #run "ln -s #{shared_path}/config/cert/apn-cert.pem #{current_path}/config/cert/apn-cert.pem"
+    #run "ln -s #{shared_path}/config/cert/apn-key.pem #{current_path}/config/cert/apn-key.pem"
   end
 
 end
