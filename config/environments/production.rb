@@ -48,18 +48,4 @@ HTMLcast::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings = {
-    :address => "mail.kundenportal.railshoster.de",
-    :port => 465,
-    :authentication => :plain,
-    :user_name => "no-reply@willypay.de",
-    :password => "XjF5K8bFma",
-    :domain => "willypay.de",
-    :enable_starttls_auto => true,
-    :openssl_verify_mode => 'none'
-  }
-  config.action_mailer.default_url_options = { :host => 'willypay.de' }
 end
