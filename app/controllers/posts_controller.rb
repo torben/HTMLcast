@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   before_filter :set_category_tree, :only => [:new, :edit]
 
   load_and_authorize_resource
-  uses_tiny_mce :only => [:new, :edit]
 
   def index
     respond_to do |format|
